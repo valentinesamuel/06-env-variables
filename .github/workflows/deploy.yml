@@ -6,7 +6,7 @@ on:
       - dev
 env:
   MONGODB_DB_NAME: gha-demo
-  
+
 jobs:
   test:
     env:
@@ -31,12 +31,13 @@ jobs:
       - name: Run tests
         run: npm test
       - name: Output information
-        run: echo "MONDOGBB_USERNAME: ${{env.MONDOGBB_USERNAME}}"
+        run: |
+          echo "MONDOGBB_USERNAME: ${{env.MONDOGBB_USERNAME}}"
   deploy:
     needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Output information
-        run: |        
+        run: |
           echo "MONDOGBB_USERNAME: ${{env.MONDOGBB_USERNAME}}"
           echo "MONGODB_DB_NAME: $MONGODB_DB_NAME"
